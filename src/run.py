@@ -52,7 +52,7 @@ def run() -> Path:
         for sheet_name in excel.list_sheets():
             try:
                 sheet = excel.sheet(sheet_name)
-                start, end = sheet.get_used_range()
+                start, end = sheet.read_used_range()
                 table_name = _sanitize_table_name(sheet_name)
                 excel.convert_range_to_table(
                     sheet_name,
