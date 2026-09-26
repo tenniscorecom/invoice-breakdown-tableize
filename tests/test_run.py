@@ -31,8 +31,8 @@ def _write_config(tmp_path: Path, *, header_row: str | None = "1") -> Path:
 def test_run_converts_normal_sheets_and_skips_failing_sheet(
     tmp_path: Path, make_input_book, use_config
 ) -> None:
-    # 1 枚目: 正常な表。2 枚目: 見出し行に空セルがあり ``ExcelHeaderError``（空セル） で失敗する。
-    # 3 枚目: 見出し行に重複があり ``ExcelHeaderError``（重複） で失敗する。
+    # 1 枚目: 正常な表。2 枚目: 見出し行に空セルがあり ``ExcelError``（空セル） で失敗する。
+    # 3 枚目: 見出し行に重複があり ``ExcelError``（重複） で失敗する。
     input_path = make_input_book(
         tmp_path / "input.xlsx",
         {
